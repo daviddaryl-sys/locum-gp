@@ -21,6 +21,14 @@ production readiness. Audit and update dependencies, test the migrations in an
 isolated database, and complete the release checks before deploying your own
 instance. Do not point local tests at the original production service.
 
+Publication checks on 18 October 2026: 958 unit tests and TypeScript checks
+passed; Gitleaks found no secrets in the published source/history. The production
+dependency audit reported **one critical and two high findings**, affecting
+`next`, `sharp` and `source-map-js`. This snapshot needs dependency remediation
+and fresh deployment validation before being used for a new production instance.
+A production build, browser acceptance and fresh database test run were not
+performed as part of this source publication.
+
 ## Features
 
 - Practice records, session tracking and invoice generation.
