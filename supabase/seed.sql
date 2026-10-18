@@ -1,0 +1,2 @@
+-- No real records or credentials are distributed with this source snapshot.
+-- Use the application's explicitly labelled demo flow or fictional test fixtures.

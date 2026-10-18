@@ -1,0 +1,52 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare:ocr-assets": "node scripts/copy-ocr-assets.mjs",
+    "predev": "npm run prepare:ocr-assets",
+    "dev": "next dev",
+    "prebuild": "npm run prepare:ocr-assets && node scripts/clean-next-build.mjs",
+    "build": "next build",
+    "postbuild": "node scripts/verify-local-ocr-build.mjs",
+    "start": "next start",
+    "lint": "eslint --ignore-pattern 'public/ocr/**'",
+    "pretest": "npm run prepare:ocr-assets",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-pdf/renderer": "4.5.1",
+    "@supabase/ssr": "^0.12.4",
+    "@supabase/supabase-js": "^2.111.0",
+    "@tesseract.js-data/eng": "^1.0.0",
+    "dexie": "^4.4.4",
+    "dexie-react-hooks": "^4.4.0",
+    "next": "16.2.12",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "server-only": "0.0.1",
+    "tesseract.js": "^7.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@testing-library/jest-dom": "^7.0.0",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.12",
+    "fake-indexeddb": "^6.2.5",
+    "jsdom": "^29.1.1",
+    "typescript": "^5",
+    "vitest": "^4.1.10"
+  },
+  "overrides": {
+    "nanoid": "3.3.18",
+    "postcss": "8.5.25",
+    "sharp": "0.35.3"
+  }
+}
